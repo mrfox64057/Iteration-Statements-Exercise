@@ -5,10 +5,15 @@ namespace IterationStatements
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
-            //OneToThosand();
+            OneToThosand();
             Twelve(5);
+            OddOrEven();
+            Range();
+            IsNegative(6);
+            CanRegister();
+
 
         }
         //LukeWarm Section: Create methods below
@@ -29,7 +34,7 @@ namespace IterationStatements
             }
         }
         //Write a method to accept two integers as parameterss and check whether they are equal or not
-        public static bool isEqual(int a, int b)
+        public static bool IsEqual(int a, int b)
         {
             if (a == b)
             {
@@ -44,11 +49,10 @@ namespace IterationStatements
 
         //Write a method to check whether a given number is even or odd
 
-        static void OddOrEven()
+        public static void OddOrEven()
         {
-            int i;
             Console.Write("Enter a Number : ");
-            i = int.Parse(Console.ReadLine());
+            int i = int.Parse(Console.ReadLine());
             if (i % 2 == 0)
             {
                 Console.Write("Entered Number is an Even Number");
@@ -61,7 +65,7 @@ namespace IterationStatements
             }
         }
         //Write a method to check whether a given number is positive or negative
-        bool isNegative(int n)
+        public static bool IsNegative(int n)
         {
             int i;
             for (i = 0; i <= int.MaxValue; i++)
@@ -78,21 +82,43 @@ namespace IterationStatements
         //TryParse()
         public static void CanRegister()
         {
-            for (int i = 0; i < 18; i++)
+            Console.WriteLine($"and how old might you be?");
+            int i = int.Parse(Console.ReadLine());
+            if (i <= 17) 
             {
-                Console.WriteLine(i);
+                Console.WriteLine("I am sorry to inform you but you are not old nuff yet scrub");
             }
+       
+            else
+            {
+                Console.WriteLine("Why did you even ask boomer?");
+            }  
+           
+
         }
 
         //Heatin Up Section:
         //Write a method to check if an integer(from the user) is in the range -10 to 10
-        static void Range()
+        public static void Range()
         {
-            Console.Write("Input a first number: ");
-            int m = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Input a second number: ");
-            int n = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine(m >= -10 && m <= 10 || (n >= -10 && n <= 10));
+            bool userResponse;
+            int result;
+
+            do
+            {
+                Console.WriteLine("Pick a number, pick a number");
+                userResponse = int.TryParse(Console.ReadLine(),out result);
+
+            }while (!userResponse);
+            if (result >= -10 && result <= 10) 
+            {
+                Console.WriteLine($"{result} is between neagative 10 and 10");
+            }
+            else 
+            {
+                Console.WriteLine($"Sorry but {result} was not in between negative 10 and 10, try again");
+
+            }
         }
 
         //Write a method to display the multiplication table(from 1 to 12) of a given integer
@@ -115,18 +141,7 @@ namespace IterationStatements
             }
         }
     }
-    //static void Main(string[] args)
-    //{
-    //    int a, b;
-    //    for (a = 1; a <= 12; a++)
-    //    {
-    //        Console.Write("\n");
-    //        for (b = 1; b <= 10; b++)
-    //        {
-    //            Console.Write("\n " + a * b);
 
-    //        }
-    //    }
         //Call the methods to test them in the Main method below
         //static void Main(string[] args)
         //{

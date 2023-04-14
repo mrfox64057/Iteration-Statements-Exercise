@@ -106,7 +106,8 @@ namespace IterationStatements
 
             do
             {
-                Console.WriteLine("Pick a number, pick a number");
+                Console.WriteLine("Pick a number, pick a number");//why does this repeat twice?
+
                 userResponse = int.TryParse(Console.ReadLine(),out result);
 
             }while (!userResponse);
